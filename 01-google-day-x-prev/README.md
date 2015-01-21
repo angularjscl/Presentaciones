@@ -11,4 +11,20 @@ documentos presentacion google day
     - directivas
     - ngclick
     - route - ui route
-    
+
+## Temas Andres
+
+### Introducción a AngularJS
+
+    - ¿Qué es angularjs?
+    - ¿Qué es MVW?
+    - Filosofía
+    - Objetivos
+    - Conceptos
+        - Scope
+        - Controller
+        - Services
+        - Factory
+        - Directive
+        - Filter
+    - Estructura de un proyecto

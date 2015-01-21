@@ -1,0 +1,25 @@
+[
+    "index.md",
+    [
+        "define.md",
+        "define-1.md"
+    ],
+    [
+    	"define-MVW.md",
+    	"define-mvw-1.md"
+    ],
+    [
+        "philosophy.md",
+        "philosophy-1.md",
+        "philosophy-2.md",
+        "philosophy-3.md"
+    ],
+    [
+        "objetives.md",
+        "objetives-1.md",
+        "objetives-2.md",
+        "objetives-3.md",
+        "objetives-4.md",
+        "objetives-5.md"
+    ]
+]
