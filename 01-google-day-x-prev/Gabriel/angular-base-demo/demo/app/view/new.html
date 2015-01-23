@@ -1,0 +1,32 @@
+
+    <md-content class="md-padding">
+<h1>{{msg}}</h1>
+        <form name="userForm">
+            <md-input-container flex>
+                <label>Titulo</label>
+                <input ng-model="blog.title">
+            </md-input-container>
+            <div layout layout-sm="column">
+                <md-input-container flex>
+                    <label>Nombre Creador</label>
+                    <input ng-model="blog.name">
+                </md-input-container>
+
+            </div>
+            <md-input-container flex>
+
+                <md-input-container flex>
+                    <label>Contenido</label>
+                    <textarea ng-model="blog.content" columns="5" md-maxlength="500"></textarea>
+                </md-input-container>
+            </md-input-container>
+
+        </form>
+
+    </md-content>
+    <md-button ng-hide="edit" class="md-primary md-fab  md-fab-bottom-right " ng-click="grabar()" >
+       SAVE
+    </md-button>
+    <md-button ng-show="edit" class="md-primary md-fab  md-fab-bottom-right " ng-click="editar()" >
+        EDITAR
+    </md-button>
