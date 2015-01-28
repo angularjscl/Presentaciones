@@ -1,0 +1,11 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Reveal.js and Yeoman is Awesomeness",
+    "packageVersion": "0.0.1",
+    "revealTheme": "default",
+    "useSass": false,
+    "deployToGithubPages": true,
+    "githubUsername": "angularjscl",
+    "githubRepository": ""
+  }
+}
