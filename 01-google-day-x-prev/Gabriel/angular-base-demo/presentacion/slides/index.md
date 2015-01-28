@@ -1,2 +1,0 @@
-
-# Angularjs Chile

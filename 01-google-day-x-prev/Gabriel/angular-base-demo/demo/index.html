@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="app" >
+<html lang="es" ng-app="app" ng-init="icon='favorite'">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +8,11 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template Angularjs</title>
+    <title>Angularjs Chile</title>
 
 
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
-    <link rel="stylesheet" href="css/blog.css"/>
-
+    <link rel="stylesheet" href="css/movie_style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,15 +22,63 @@
 </head>
 
 <body >
-
+<div class="logo-angular-chile">
+    <img alt="" src="img/logo.png">
+    <img alt="" src="img/GDG-program-logo.png">
+</div>
 <md-toolbar md-scroll-shrink>
     <div class="md-toolbar-tools">
         <h3>
-            <span>Angularjs Chile blog - Google Day X</span>
+            <span>Angularjs Chile</span>
         </h3>
         <span flex></span>
-        <md-button class="md-fab md-primary md-warn md-fab-top-right" href="#/new"  aria-label="Profile">
-            <md-icon icon="/img/icons/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+        <md-input-container>
+
+
+            <input ng-model="buscar" type="text" ng-model-options="{ debounce: 500 }" placeholder="Buscar">
+        </md-input-container>
+
+        <md-button class="  " href="#/" aria-label="refresh">
+            <md-tooltip>
+                Buscar
+            </md-tooltip>
+            <ng-md-icon icon="search" size="32"></ng-md-icon>
+        </md-button>
+        <md-button class="  " href="#/movies/popular" aria-label="refresh">
+            <md-tooltip>
+                Popular
+            </md-tooltip>
+            POPULAR
+        </md-button>
+        <md-button class="  " href="#/movies/top_rated" aria-label="refresh">
+            <md-tooltip>
+                Mejor Ranking
+            </md-tooltip>
+            Ranking
+        </md-button>
+        <md-button class="  " href="#/movies/now_playing" aria-label="refresh">
+            <md-tooltip>
+               Recientes
+            </md-tooltip>
+            RECIENTES
+        </md-button>
+        <md-button class="  " href="#/movies/upcoming" aria-label="refresh">
+            <md-tooltip>
+                Próximamente
+            </md-tooltip>
+            Próximamente
+        </md-button>
+        <md-button class="  " href="#/categorias" aria-label="refresh">
+            <md-tooltip>
+                Categorias
+            </md-tooltip>
+            Categorias
+        </md-button>
+        <md-button class="  " href="#/favorites" aria-label="refresh">
+            <md-tooltip>
+                Mis Favoritos
+            </md-tooltip>
+            <ng-md-icon icon="{{icon}}" size="32"></ng-md-icon>
         </md-button>
     </div>
 </md-toolbar>
@@ -43,20 +90,25 @@
 </div><!-- /.container -->
 
 
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js"></script>
+<script src="bower_components/hammerjs/hammer.min.js"></script>
+<script src="bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="bower_components/angular-aria/angular-aria.min.js"></script>
 <script src="bower_components/angular-material/angular-material.min.js"></script>
+<script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
 <script src="app/app.js"></script>
-<script src="app/controller/blogCtrl.js"></script>
-<script src="app/controller/newCtrl.js"></script>
+<script src="app/controller/searchCtrl.js"></script>
+<script src="app/controller/favoritesCtrl.js"></script>
+<script src="app/controller/popularCtrl.js"></script>
+<script src="app/controller/detalleCtrl.js"></script>
+<script src="app/controller/generosCtrl.js"></script>
+<script src="app/controller/generosDetalleCtrl.js"></script>
+<script src="app/controller/actorCtrl.js"></script>
+<script src="app/service/movieService.js"></script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<h2>{{movie.title}}</h2>
+<div layout="row" layout-wrap layout-sm="column">
+    <div flex>
+        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+             style="margin-left:20px;width: 250px">
+    </div>
+    <div flex>
+        <p>
+            {{movie.overview}}
+        </p>
+    </div>
+    <div flex>
+        <md-content style="height: 300px;">
+            <md-list>
+                <md-item ng-repeat="item in movie.casts.cast">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="http://image.tmdb.org/t/p/w500{{item.profile_path}}" class="face"
+                                 alt="{{item.who}}">
+                        </div>
+                        <div class="md-tile-content">
+                           <h3>{{item.character}}</h3>
+                             <a href="#/actor/{{item.id}}/{{item.name}}"><h4>{{item.name}}</h4></a>
+
+                            <p>
+                                {{item.notes}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
+    </div>
+
+</div>
+
+
+<div flex>
+    <p ng-repeat = "item in movie.trailers.youtube" style="margin-left: 20px">
+        <youtube-video video-id="item.source"></youtube-video>
+    </p>
+</div>

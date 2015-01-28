@@ -1,0 +1,13 @@
+<md-list>
+    <md-item ng-repeat="item in movies|filter:buscar">
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout >
+        <md-item-content>
+
+            <div class="md-tile-content">
+                <a href="#/categoria/{{item.id}}/{{item.name}}"><h3>{{item.name}}</h3></a>
+
+            </div>
+        </md-item-content>
+        </md-whiteframe>
+    </md-item>
+</md-list>
