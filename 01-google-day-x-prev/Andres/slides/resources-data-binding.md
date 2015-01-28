@@ -1,6 +1,6 @@
 ##  Data binding
 
-Podemos sincronizar el modelo con las vistas utilizando siertas directivas _**ng-model**_, esto se realiza  de forma bidireccional.
+Podemos sincronizar el modelo con las vistas utilizando ciertas directivas _**ng-model**_, esto se realiza  de forma bidireccional.
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/saidgeek/8hycxc18/2/embedded/html,js,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 

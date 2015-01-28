@@ -1,8 +1,8 @@
 ##  Scope
 
-Son los distintos conceptos de ejecucion en los que trabajan las expreciones de AngularJS.
+Son los distintos conceptos de ejecución en los que trabajan las expreciones de AngularJS.
 
-Este guarda atributos del modelo que se reprecentaran el la vista y también del atributos que se utilizan para la logica de la app.
+Este guarda atributos del modelo que se representaran en la vista y también del atributos que se utilizan para la logica de la app.
 
 
 note:

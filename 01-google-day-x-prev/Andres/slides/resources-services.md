@@ -1,6 +1,6 @@
 ##  Services
 
-Son los encargados de comunicarse con el servidor trayendo la informacion para que los controladires la procesen.
+Son los encargados de comunicarse con el servidor trayendo la información para que los controladores la procesen.
 
 Estos se dividen en tres categorias: **Services**, **Factories**, **Providers**
 
