@@ -1,6 +1,6 @@
 [
-    "index.md",
     "about.html",
+    "index.md",
     "define.md",
     "define-MVW.md",
     [
@@ -27,9 +27,7 @@
         "resources-client-side-template.md",
         "resources-data-binding.md",
         "resources-directives.md",
-        "resources-services.md",
         "resources-filters.md",
-        "resources-factory.md",
-        "resources-providers.md"
+        "resources-services.md"
     ]
 ]

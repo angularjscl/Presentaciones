@@ -7,7 +7,7 @@ Su sintaxis es muy similar a los **Pipeline** de Unix.
 ```
 {{ expresion | filtro }}
 ```
--> ejemplo
+<iframe width="100%" height="300" src="http://jsfiddle.net/saidgeek/dt4mux3n/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 note:
 - exprecion seria el valor original en una variable del $scope

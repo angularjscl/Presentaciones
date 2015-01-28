@@ -1,7 +1,9 @@
 ##  Directives
 
-Esta es la mayor fortaleza de _**AngularJS**_, ya que con ellas puede cumplir uno de sus principales objetivos, la manipulación del DOM, extendiendolo.
+Con ellas manipulamos el DOM, creando nuevos TAG de HTML en diferentes niveles: **Element**, **Attribute**, **Comment**.
 
-Para esto una directiva se puede crear a niverl de _**Elemento**_, _**Atributo**_ y _**Cometario**_, las dos mas interesantes son por elemento y por atributo.
+<iframe width="100%" height="300" src="http://jsfiddle.net/saidgeek/nwhxfzj8/3/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-
+note:
+- Con ellas se cumple el mayor objectivo, la manipulacion del DOM.
+- element y attribute son los dos mas importantes
