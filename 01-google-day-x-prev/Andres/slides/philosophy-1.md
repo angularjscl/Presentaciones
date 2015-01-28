@@ -1,6 +1,6 @@
 La **programación declarativa** debe ser usada para el desarrollo de la aplicación por el lado del cliente en: _UI_, _Componentes_.
 
-Por otro lado la **programación imperativa** debe ser usada por el lado del servidor en la _logica de negocios_.
+Por otro lado la **programación imperativa** debe ser usada por el lado del servidor en la _lógica de negocios_.
 
 note:
 - declarativa: programas para conseguir algo

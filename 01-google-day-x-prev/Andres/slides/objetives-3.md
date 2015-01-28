@@ -1,1 +1,1 @@
-Separa el lado del cliente del lado del servidor, para así cada desarrollador puede trabajer de forma paralela y permite la reutilización de código en ambos lados.
+Separa el lado del cliente del lado del servidor, así cada desarrollador puede trabajar de forma paralela y permite la reutilización de código en ambos lados.

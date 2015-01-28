@@ -1,13 +1,8 @@
 [
+    "about.html",
     "index.md",
-    [
-        "define.md",
-        "define-1.md"
-    ],
-    [
-    	"define-MVW.md",
-    	"define-mvw-1.md"
-    ],
+    "define.md",
+    "define-MVW.md",
     [
         "philosophy.md",
         "philosophy-1.md",
@@ -21,5 +16,18 @@
         "objetives-3.md",
         "objetives-4.md",
         "objetives-5.md"
+    ],
+    [
+        "concepts.md",
+        "scope.md",
+        "controller.md"
+    ],
+    [
+        "resources.md",
+        "resources-client-side-template.md",
+        "resources-data-binding.md",
+        "resources-directives.md",
+        "resources-filters.md",
+        "resources-services.md"
     ]
 ]
