@@ -9,21 +9,44 @@
  * */
 
 
-angular.module('app',['ngRoute','LocalStorageModule','ngMaterial'])
-    .config(function($routeProvider) {
+angular.module('app',['ngRoute','LocalStorageModule','ngMaterial','ngMdIcons','ngResource','youtube-embed'])
+    .config(function($routeProvider,$mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryColor('red')
+            .accentColor('orange');
         $routeProvider
             .when('/', {
-                controller:'blogCtrl',
-                templateUrl:'app/view/blog.html'
+                controller:'searchCtrl',
+                templateUrl:'app/view/search.html'
 
             })
-            .when('/edit/:id/:title', {
-                controller:'newCtrl',
-                templateUrl:'app/view/new.html'
+            .when('/favorites', {
+                controller:'favoritesCtrl',
+                templateUrl:'app/view/favorites.html'
             })
-            .when('/new', {
-                controller:'newCtrl',
-                templateUrl:'app/view/new.html'
+            .when('/detalle/:id/:titulo', {
+                controller:'detalleCtrl',
+                templateUrl:'app/view/detalle.html'
+            })
+            .when('/movies/:tipo', {
+                controller:'popularCtrl',
+                templateUrl:'app/view/popular.html'
+            })
+            .when('/categorias', {
+                controller:'generosCtrl',
+                templateUrl:'app/view/generos.html'
+            })
+            .when('/categoria/:id/:nombre', {
+                controller:'generosDetalleCtrl',
+                templateUrl:'app/view/popular.html'
+            })
+            .when('/actor/:id/:nombre', {
+                controller:'actorCtrl',
+                templateUrl:'app/view/detalle_actor.html'
+            })
+            .when('/actores', {
+                controller:'actorListCtrl',
+                templateUrl:'app/view/actorList.html'
             })
             .otherwise({
                 redirectTo:'/'

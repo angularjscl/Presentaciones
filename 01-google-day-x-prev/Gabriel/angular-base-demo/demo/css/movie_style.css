@@ -1,0 +1,118 @@
+.imdb{
+    margin-left:20px;width: 120px;margin-right: 20px
+}
+.face {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px; }
+
+/*
+We're using CSS transitions for when
+the enter and move events are triggered
+for the element that has the .repeated-item
+class
+*/
+.repeated-item.ng-enter, .repeated-item.ng-move {
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity:0;
+}
+
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+.repeated-item.ng-enter.ng-enter-active,
+.repeated-item.ng-move.ng-move-active {
+    opacity:1;
+}
+
+/*
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
+*/
+.repeated-item.ng-leave {
+    -webkit-animation:0.5s my_animation;
+    -moz-animation:0.5s my_animation;
+    -o-animation:0.5s my_animation;
+    animation:0.5s my_animation;
+}
+
+@keyframes my_animation {
+    from { opacity:1; }
+    to { opacity:0; }
+}
+
+/*
+  Unfortunately each browser vendor requires
+  its own definition of keyframe animation code...
+*/
+@-webkit-keyframes my_animation {
+    from { opacity:1; }
+    to { opacity:0; }
+}
+
+@-moz-keyframes my_animation {
+    from { opacity:1; }
+    to { opacity:0; }
+}
+
+@-o-keyframes my_animation {
+    from { opacity:1; }
+    to { opacity:0; }
+}
+.md-whiteframe {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+}
+
+.logo-angular-chile {
+    bottom: 0;
+
+    z-index: 1000;
+}
+.logo-angular-chile img {
+    width: 132px;
+}
+
+.docs-menu, .docs-menu ul {
+    list-style: outside none none;
+    padding: 0;
+}
+.docs-menu li {
+    margin: 0;
+}
+.docs-menu > li {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.docs-menu .md-button {
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    width: 100%;
+}
+.docs-menu a.md-button {
+    display: block;
+}
+.docs-menu button.md-button::-moz-focus-inner {
+    padding: 0;
+}
+.docs-menu .md-button.active {
+    color: #03a9f4;
+}
