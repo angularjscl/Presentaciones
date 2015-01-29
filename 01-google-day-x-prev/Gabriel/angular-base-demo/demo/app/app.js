@@ -44,6 +44,10 @@ angular.module('app',['ngRoute','LocalStorageModule','ngMaterial','ngMdIcons','n
                 controller:'actorCtrl',
                 templateUrl:'app/view/detalle_actor.html'
             })
+            .when('/actores', {
+                controller:'actorListCtrl',
+                templateUrl:'app/view/actorList.html'
+            })
             .otherwise({
                 redirectTo:'/'
             });

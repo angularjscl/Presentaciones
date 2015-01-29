@@ -11,6 +11,7 @@
 
 angular.module('app')
     .controller('actorCtrl', function($rootScope,$scope,movieService,$routeParams,localStorageService,$timeout){
+        $rootScope.buscar='';
         movieService.get({type:'person',id:$routeParams.id}).$promise.then(function(response){
             $scope.actor=response;
         })

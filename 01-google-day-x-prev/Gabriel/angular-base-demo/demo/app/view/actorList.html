@@ -1,0 +1,35 @@
+<h1>Actores</h1>
+
+<md-list>
+    <md-item ng-repeat="item in actor|filter:buscar|limitTo:50" class="repeated-item" >
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout >
+            <md-item-content>
+
+
+                <div class="md-tile-left">
+                    <img src="http://image.tmdb.org/t/p/w500{{item.profile_path}}" alt="{{item.name}}" class="imdb">
+                </div>
+
+                <div class="md-tile-content">
+
+
+                    <a href="#/actor/{{item.id}}/{{item.name}}"><h3> {{item.name}} </h3></a>
+
+
+                    <p>Popularidad {{item.popularity|number:2}}</p>
+
+
+                </div>
+
+
+
+
+            </md-item-content>
+            <span flex></span>
+            <md-button ng-click="addFavorite(item,$index)" class="md-raised md-fab md-warn" aria-label=""
+                    >
+                <ng-md-icon icon="{{item.icon}}" size="32"></ng-md-icon>
+            </md-button>
+        </md-whiteframe>
+    </md-item>
+</md-list>

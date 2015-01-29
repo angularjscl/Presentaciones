@@ -1,16 +1,16 @@
 <h2>{{actor.name}}</h2>
 <div layout="row" layout-wrap layout-sm="column">
-    <div flex="33">
+    <div flex="50">
         <img src="http://image.tmdb.org/t/p/w500{{actor.profile_path}}"
              style="margin-left:20px;width: 250px">
     </div>
-    <div flex="33">
+    <div flex="50">
         <p>
             {{actor.biography}}
         </p>
     </div>
-    <div flex="33">
-        <md-content style="height: 300px;">
+    <div flex="100" >
+        <md-content style="height: 400px;" layout="column">
             <md-list>
                 <md-item ng-repeat="item in actor.images.profiles">
                     <md-item-content>

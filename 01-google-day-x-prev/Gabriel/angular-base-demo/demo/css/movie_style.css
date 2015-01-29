@@ -74,13 +74,45 @@ class
 }
 
 .logo-angular-chile {
-    background-color: rgb(244, 67, 54);
     bottom: 0;
-    margin: -10px;
-    padding: 20px;
-    position: fixed;
+
     z-index: 1000;
 }
 .logo-angular-chile img {
     width: 132px;
+}
+
+.docs-menu, .docs-menu ul {
+    list-style: outside none none;
+    padding: 0;
+}
+.docs-menu li {
+    margin: 0;
+}
+.docs-menu > li {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.docs-menu .md-button {
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    width: 100%;
+}
+.docs-menu a.md-button {
+    display: block;
+}
+.docs-menu button.md-button::-moz-focus-inner {
+    padding: 0;
+}
+.docs-menu .md-button.active {
+    color: #03a9f4;
 }

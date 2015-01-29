@@ -11,7 +11,7 @@
 
 angular.module('app')
     .controller('popularCtrl', function($rootScope,$scope,movieService,$routeParams,localStorageService,$timeout){
-
+        $rootScope.buscar='';
         $scope.tipo=$routeParams.tipo;
         $scope.search = function () {
             $scope.load = true;

@@ -10,11 +10,10 @@
 
 
 angular.module('app')
-    .controller('searchCtrl', function ($rootScope,$scope, localStorageService, $mdToast, $mdDialog, $rootScope, $location, movieService, $timeout) {
+    .controller('searchCtrl', function ($mdSidenav, $rootScope, $scope, localStorageService, $mdToast, $mdDialog, $rootScope, $location, movieService, $timeout) {
+
         $rootScope.icon = 'favorite';
-        $scope.ir = function () {
-            $location.path('/new');
-        };
+
         $scope.movies = localStorageService.get('movies');
         $scope.favorites = localStorageService.get('favorites');
         if ($scope.favorites == null) {
@@ -22,13 +21,17 @@ angular.module('app')
         }
 
         $rootScope.buscar = '';
-        $rootScope.$watch('buscar',function(){
-            if ($rootScope.buscar!='')
+        $rootScope.$watch('buscar', function () {
+            if ($rootScope.buscar != '')
                 $scope.search();
-        },true);
+        }, true);
         $scope.search = function () {
             $scope.load = true;
-            movieService.getMovies({query: $rootScope.buscar,type:'search',id:'movie'}).$promise.then(function (data) {
+            movieService.getMovies({
+                query: $rootScope.buscar,
+                type: 'search',
+                id: 'movie'
+            }).$promise.then(function (data) {
                 $scope.movies = data.results
                 for (var i = 0; i < $scope.movies.length; i++) {
                     $scope.movies[i].icon = 'favorite'
