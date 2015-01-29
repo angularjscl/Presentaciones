@@ -10,7 +10,8 @@
 
 
 angular.module('app')
-    .controller('actorListCtrl', function($rootScope,$scope,movieService,$routeParams,localStorageService,$timeout){
+    .controller('actorListCtrl', function( $rootScope,$scope,movieService,$stateParams,localStorageService,$timeout){
+
         $rootScope.buscar='';
         movieService.get({type:'person',id:'popular'}).$promise.then(function(response){
             $scope.actor=response.results;

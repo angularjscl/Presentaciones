@@ -10,7 +10,8 @@
 
 
 angular.module('app')
-    .controller('generosCtrl', function($rootScope,$scope,movieService,$routeParams,localStorageService,$timeout){
+    .controller('generosCtrl', function($rootScope,$scope,movieService,$stateParams,localStorageService,$timeout){
+
         $rootScope.buscar='';
         $scope.generos= function () {
             $scope.load = true;
@@ -24,4 +25,17 @@ angular.module('app')
             })
         }
         $scope.generos();
+        $rootScope.favorites = localStorageService.get('favorites');
+        if ($rootScope.favorites == null) {
+            $rootScope.favorites = [];
+        }
+        $scope.addFavorite = function (item, index) {
+            $rootScope.icon = 'exposure_plus_1';
+            $scope.movies[index].icon = 'check';
+            $rootScope.favorites.push(item);
+            localStorageService.set('favorites', $rootScope.favorites);
+            $timeout(function () {
+                $rootScope.icon = 'favorite';
+            }, 1000)
+        }
 });

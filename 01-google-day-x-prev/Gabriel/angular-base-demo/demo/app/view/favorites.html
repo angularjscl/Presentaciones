@@ -1,7 +1,7 @@
-<h1>{{movies.length}} Peliculas Favoritas</h1>
+<h1>{{favorites.length}} Peliculas Favoritas</h1>
 
 <md-list>
-    <md-item ng-repeat="item in movies|filter:buscar" class="repeated-item" ng-if="item.poster_path!='' && item.poster_path!=null ">
+    <md-item ng-repeat="item in favorites|filter:buscar" class="repeated-item" ng-if="item.poster_path!='' && item.poster_path!=null ">
         <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout >
         <md-item-content>
 

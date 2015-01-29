@@ -10,26 +10,32 @@
 
 
 angular.module('app')
-    .controller('actorCtrl', function($rootScope,$scope,movieService,$routeParams,localStorageService,$timeout){
+    .controller('actorCtrl', function( $rootScope,$scope,movieService,$stateParams,localStorageService,$timeout){
+
         $rootScope.buscar='';
-        movieService.get({type:'person',id:$routeParams.id}).$promise.then(function(response){
+        movieService.get({type:'person',id:$stateParams.id}).$promise.then(function(response){
             $scope.actor=response;
+            $scope.images1=[];
+            for (var i=0;i<$scope.actor.images.profiles.length;i++){
+                $scope.images1.push({src:'http://image.tmdb.org/t/p/w500'+$scope.actor.images.profiles[i].file_path,title:''})
+            }
         })
-        movieService.getPersonMovies({id:$routeParams.id}).$promise.then(function(response){
+        movieService.getPersonMovies({id:$stateParams.id}).$promise.then(function(response){
             $scope.movies=response.cast;
             for (var i = 0; i < $scope.movies.length; i++) {
                 $scope.movies[i].icon = 'favorite'
             }
+
         })
-        $scope.favorites = localStorageService.get('favorites');
-        if ($scope.favorites == null) {
-            $scope.favorites = [];
+        $rootScope.favorites = localStorageService.get('favorites');
+        if ($rootScope.favorites == null) {
+            $rootScope.favorites = [];
         }
         $scope.addFavorite = function (item, index) {
             $rootScope.icon = 'exposure_plus_1';
             $scope.movies[index].icon = 'check';
-            $scope.favorites.push(item);
-            localStorageService.set('favorites', $scope.favorites);
+            $rootScope.favorites.push(item);
+            localStorageService.set('favorites', $rootScope.favorites);
             $timeout(function () {
                 $rootScope.icon = 'favorite';
             }, 1000)

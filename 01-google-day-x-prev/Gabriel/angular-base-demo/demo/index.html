@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
     <link rel="stylesheet" href="css/movie_style.css"/>
+    <link rel="stylesheet" href="css/slideshow.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -21,103 +22,8 @@
     <![endif]-->
 </head>
 
-<body layout="row">
-<md-sidenav md-component-id="left" layout="column"
-            style="overflow: hidden; display: flex;"
-            class="site-sidenav md-sidenav-left md-whiteframe-z2"
-            md-component-id="left"
-            md-is-locked-open="$media('gt-sm')">
+<body layout="row" ui-view>
 
-
-    <md-toolbar>
-        <h1 class="md-toolbar-tools">
-            <a ng-href="/" layout="row" flex>
-                <div class="logo-angular-chile">
-                    <img alt="" src="img/logo.png">
-                    <img alt="" src="img/GDG-program-logo.png">
-                </div>
-
-            </a>
-        </h1>
-    </md-toolbar>
-
-    <md-content style="overflow: auto;">
-        <ul class="docs-menu">
-            <li class="parent-list-item">
-                <md-button  href="#/" class="  "aria-label="refresh">
-
-                    Buscar
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button  href="#/movies/popular" class="  "aria-label="refresh">
-
-                    Popular
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/movies/top_rated" aria-label="refresh">
-
-                    Ranking
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/movies/now_playing" aria-label="refresh">
-
-                    Recientes
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/movies/upcoming" aria-label="refresh">
-                    Próximamente
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/categorias" aria-label="refresh">
-                    Categorias
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/favorites" aria-label="refresh">
-                    Mis Favoritos
-                </md-button>
-            </li>
-            <li class="parent-list-item">
-                <md-button class="  " href="#/actores" aria-label="refresh">
-                    Actores
-                </md-button>
-            </li>
-        </ul>
-    </md-content>
-</md-sidenav>
-<div layout="column" layout-fill tabIndex="-1" role="main">
-<md-toolbar md-scroll-shrink>
-    <div class="md-toolbar-tools">
-
-
-        <span flex></span>
-        <md-input-container>
-            <label for="">Buscar</label>
-
-            <input ng-model="buscar" type="text" ng-model-options="{ debounce: 200 }" >
-        </md-input-container>
-
-        <md-button class="  "   aria-label="refresh">
-            <md-tooltip>
-                Buscar
-            </md-tooltip>
-            <ng-md-icon icon="search" size="32"></ng-md-icon>
-        </md-button>
-
-
-
-
-
-    </div>
-</md-toolbar>
-<md-content class="md-padding" style="height: 600px;background:none repeat scroll 0 0 #eee"  ng-view="" >
-</md-content>
-</div>
 
 
 <script src="bower_components/hammerjs/hammer.min.js"></script>
@@ -130,8 +36,10 @@
 <script src="bower_components/angular-material/angular-material.min.js"></script>
 <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+<script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="app/app.js"></script>
+<script src="app/controller/menuCtrl.js"></script>
 <script src="app/controller/searchCtrl.js"></script>
 <script src="app/controller/favoritesCtrl.js"></script>
 <script src="app/controller/popularCtrl.js"></script>
@@ -141,5 +49,7 @@
 <script src="app/controller/actorCtrl.js"></script>
 <script src="app/controller/actorListCtrl.js"></script>
 <script src="app/service/movieService.js"></script>
+<script src="app/directive/slideshow.js"></script>
+<script src="app/filter/slice.js"></script>
 </body>
 </html>

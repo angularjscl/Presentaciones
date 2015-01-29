@@ -9,46 +9,99 @@
  * */
 
 
-angular.module('app',['ngRoute','LocalStorageModule','ngMaterial','ngMdIcons','ngResource','youtube-embed'])
-    .config(function($routeProvider,$mdThemingProvider) {
+angular.module('app',['ngRoute','LocalStorageModule','ngMaterial','ngMdIcons','ngResource','youtube-embed','ui.router','sliderApp'])
+    .config(function($routeProvider,$stateProvider,$mdThemingProvider,$urlRouterProvider) {
         $mdThemingProvider.theme('default')
             .primaryColor('red')
             .accentColor('orange');
-        $routeProvider
-            .when('/', {
-                controller:'searchCtrl',
-                templateUrl:'app/view/search.html'
 
+        $stateProvider
+            .state('app', {
+                url: "/",
+                controller: 'menuCtrl',
+                templateUrl: "app/view/menu.html"
             })
-            .when('/favorites', {
-                controller:'favoritesCtrl',
-                templateUrl:'app/view/favorites.html'
+            .state('app.buscar', {
+                url: "buscar",
+                views: {
+                    "app": {
+                        controller:'searchCtrl',
+                        templateUrl:'app/view/search.html'
+                    }
+                }
             })
-            .when('/detalle/:id/:titulo', {
-                controller:'detalleCtrl',
-                templateUrl:'app/view/detalle.html'
+            .state('app.favoritos', {
+                url: "favorites",
+                views: {
+                    "app": {
+                        controller:'favoritesCtrl',
+                        templateUrl:'app/view/favorites.html'
+                    }
+                }
             })
-            .when('/movies/:tipo', {
-                controller:'popularCtrl',
-                templateUrl:'app/view/popular.html'
+            .state('app.detalle', {
+                url: "detalle/:id/:titulo",
+                views: {
+                    "app": {
+                        controller:'detalleCtrl',
+                        templateUrl:'app/view/detalle.html'
+                    }
+                }
             })
-            .when('/categorias', {
-                controller:'generosCtrl',
-                templateUrl:'app/view/generos.html'
+            .state('app.movies_type', {
+                url: "movies/:tipo/:nombre",
+                views: {
+                    "app": {
+                        controller:'popularCtrl',
+                        templateUrl:'app/view/popular.html'
+                    }
+                }
             })
-            .when('/categoria/:id/:nombre', {
-                controller:'generosDetalleCtrl',
-                templateUrl:'app/view/popular.html'
+            .state('app.categorias', {
+                url: "categorias",
+                views: {
+                    "app": {
+                        controller:'generosCtrl',
+                        templateUrl:'app/view/generos.html'
+                    }
+                }
             })
-            .when('/actor/:id/:nombre', {
-                controller:'actorCtrl',
-                templateUrl:'app/view/detalle_actor.html'
+            .state('app.categorias_detalle', {
+                url: "categoria/:id/:nombre",
+                views: {
+                    "app": {
+                        controller:'generosDetalleCtrl',
+                        templateUrl:'app/view/popular.html'
+                    }
+                }
             })
-            .when('/actores', {
-                controller:'actorListCtrl',
-                templateUrl:'app/view/actorList.html'
+            .state('app.actor', {
+                url: "actor/:id/:nombre",
+                views: {
+                    "app": {
+                        controller:'actorCtrl',
+                        templateUrl:'app/view/detalle_actor.html'
+                    }
+                }
             })
-            .otherwise({
-                redirectTo:'/'
+            .state('app.actores', {
+                url: "actores",
+                views: {
+                    "app": {
+                        controller:'actorListCtrl',
+                        templateUrl:'app/view/actorList.html'
+                    }
+                }
             });
+        $urlRouterProvider.otherwise("/buscar");
+
+
     })
+    .run(['$state',   '$rootScope','$mdSidenav', function($state,   $rootScope,$mdSidenav) {
+        $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+
+            if ($mdSidenav('left').isOpen()){
+                $mdSidenav('left').close();
+            }
+        });
+    }]);

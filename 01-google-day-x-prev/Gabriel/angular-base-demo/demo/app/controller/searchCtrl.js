@@ -10,25 +10,27 @@
 
 
 angular.module('app')
-    .controller('searchCtrl', function ($mdSidenav, $rootScope, $scope, localStorageService, $mdToast, $mdDialog, $rootScope, $location, movieService, $timeout) {
+    .controller('searchCtrl', function (  $rootScope, $scope, localStorageService, $mdToast, $mdDialog, $rootScope, $location, movieService, $timeout) {
+
 
         $rootScope.icon = 'favorite';
 
         $scope.movies = localStorageService.get('movies');
-        $scope.favorites = localStorageService.get('favorites');
-        if ($scope.favorites == null) {
-            $scope.favorites = [];
+        $rootScope.favorites = localStorageService.get('favorites');
+        if ($rootScope.favorites == null) {
+            $rootScope.favorites = [];
         }
 
         $rootScope.buscar = '';
-        $rootScope.$watch('buscar', function () {
-            if ($rootScope.buscar != '')
-                $scope.search();
+        $scope.$watch('buscar', function (value) {
+            console.log(value);
+            if (value!= '')
+                $scope.search(value);
         }, true);
-        $scope.search = function () {
+        $scope.search = function (query) {
             $scope.load = true;
             movieService.getMovies({
-                query: $rootScope.buscar,
+                query: query,
                 type: 'search',
                 id: 'movie'
             }).$promise.then(function (data) {
@@ -45,8 +47,8 @@ angular.module('app')
         $scope.addFavorite = function (item, index) {
             $rootScope.icon = 'exposure_plus_1';
             $scope.movies[index].icon = 'check';
-            $scope.favorites.push(item);
-            localStorageService.set('favorites', $scope.favorites);
+            $rootScope.favorites.push(item);
+            localStorageService.set('favorites', $rootScope.favorites);
             $timeout(function () {
                 $rootScope.icon = 'favorite';
             }, 1000)
