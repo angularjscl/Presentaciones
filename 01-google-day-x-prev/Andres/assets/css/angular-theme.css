@@ -71,7 +71,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13daec;
+  color: #232323;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -177,6 +177,21 @@ body {
   border: 6px solid #232323;
 }
 
+.about #avatar_g {
+  display: -webkit-inline-box;
+  background: url('../images/avatar_g.png');
+  background-position-x: -82px;
+  width: 200px;
+  height: 198px;
+  content: "";
+  position: relative;
+  padding: 10px;
+  background-size: 400px;
+  background-position-y: -84px;
+  border-radius: 50%;
+  border: 6px solid #232323;
+}
+
 .about ul{
   position: relative;
   display: block;
@@ -203,5 +218,20 @@ body {
 
 .about ul li.name {
   font-size: 1.2em;
+}
+
+.community ul{
+  position: relative;
+  display: block;
+  margin: 10px 0 0 50%;
+  width: 590px;
+  left: -295px;
+}
+
+.community ul li {
+  font-family: "Montserrat", Impact, sans-serif;
+  margin-left: 150px;
+  margin-bottom: 10px;
+  list-style: none;
 }
 
