@@ -1,0 +1,86 @@
+<h2>{{actor.name}}</h2>
+<div layout="row" layout-wrap layout-sm="column">
+    <div flex="30" >
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout="row">
+
+
+            <div flex>
+                <img src="http://image.tmdb.org/t/p/w500{{actor.profile_path}}"
+                     style=" width: 200px">
+            </div>
+        </md-whiteframe>
+    </div>
+    <div flex >
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+            <div flex>
+                <p>
+                    {{actor.biography}}
+                </p>
+            </div>
+        </md-whiteframe>
+    </div>
+
+
+    </md-whiteframe>
+
+    <div flex="100">
+
+            <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+                <md-content>
+                    <slider images="images1"/>
+                </md-content>
+            </md-whiteframe>
+
+    </div>
+
+
+    <div flex="100">
+        <h1>{{movies.length}} Peliculas Realizadas</h1>
+
+        <div layout="row">
+
+            <md-input-container>
+                <label>Buscar</label>
+                <input ng-model="buscar" type="text">
+
+            </md-input-container>
+
+        </div>
+        <md-item ng-repeat="item in movies|filter:buscar|limitTo:20 " class="repeated-item"
+                 ng-if="item.poster_path!='' && item.poster_path!=null ">
+            <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+                <md-item-content>
+
+
+                    <div class="md-tile-left">
+                        <img src="http://image.tmdb.org/t/p/w500{{item.poster_path}}" alt="{{item.title}}" class="imdb">
+                    </div>
+
+                    <div class="md-tile-content">
+
+
+                        <a href="#/detalle/{{item.id}}/{{item.title}}"><h3> {{item.title}} </h3></a>
+
+                        <p>Papel: {{item.character}}</p>
+
+                        <p>Rating: {{item.vote_average}}</p>
+
+                        <p>Fecha: {{item.release_date}}</p>
+
+                    </div>
+
+
+                </md-item-content>
+                <span flex></span>
+                <md-button ng-click="addFavorite(item,$index)" class="md-raised md-fab md-warn" aria-label=""
+                        >
+                    <ng-md-icon icon="{{item.icon}}" size="32"></ng-md-icon>
+                </md-button>
+            </md-whiteframe>
+        </md-item>
+    </div>
+
+
+</div>
+
+

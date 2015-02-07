@@ -1,0 +1,11 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Introducción a AngularJS",
+    "packageVersion": "0.0.1",
+    "revealTheme": "default",
+    "useSass": false,
+    "deployToGithubPages": true,
+    "githubUsername": "saidgeek",
+    "githubRepository": "intro-angularjs"
+  }
+}

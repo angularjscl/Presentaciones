@@ -1,0 +1,101 @@
+<h2>{{movie.title}}</h2>
+<div layout="row" layout-wrap layout-sm="column">
+    <div flex="30">
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+            <div flex>
+                <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                     style=" ;width: 200px">
+            </div>
+        </md-whiteframe>
+    </div>
+
+    <div flex >
+        <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+            <div flex>
+                <p>
+                    {{movie.overview}}
+                </p>
+                <i>Web: <a href="{{movie.homepage}}">{{movie.homepage}}</a></i>
+
+                <p>
+                    <i>Estreno: {{movie.release_date}} </i> -
+                    <i>Duracion: {{movie.runtime}} </i>
+                </p>
+
+                <p>Genero: <span ng-repeat="gen in movie.genres"><a href="#/categoria/{{gen.id}}/{{gen.name}}">{{gen.name}}</a> </span>
+                </p>
+            </div>
+        </md-whiteframe>
+    </div>
+
+
+    </md-whiteframe>
+</div>
+
+<div layout="row" layout-wrap layout-sm="column">
+
+
+    <div flex >
+        <md-toolbar class="md-primary md-hue-3 md-default-theme">
+            <h2 class="md-toolbar-tools">
+                <span>Imagenes</span>
+            </h2>
+        </md-toolbar>
+
+            <md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+                <md-content>
+                    <slider images="images1"/>
+                </md-content>
+            </md-whiteframe>
+
+    </div>
+
+
+    <div flex>
+        <md-toolbar class="md-primary md-hue-3 md-default-theme">
+            <h2 class="md-toolbar-tools">
+                <span>Reparto</span>
+            </h2>
+            <div class="arrows"  >
+                <a class="arrow" ng-click="cast=cast-1" href="" tabindex="0"><img src="img/left-arrow.png"></a> <a class="arrow" ng-click="cast=cast+1" href="" tabindex="0"><img src="img/right-arrow.png"></a>
+
+            </div>
+        </md-toolbar>
+
+
+            <md-list ng-init="cast=0">
+
+
+                <md-item ng-repeat="item in movie.casts.cast|slice:cast:cast+3">
+                    <md-whiteframe class="md-whiteframe-z5 md-whiteframe md-grid-item-content" layout="row">
+
+                            <div class="md-tile-left">
+                                <img ng-src="http://image.tmdb.org/t/p/w500{{item.profile_path}}" class="face"
+                                     alt="{{item.who}}">
+                            </div>
+                            <div class="md-tile-content">
+                                <h3>{{item.character}}</h3>
+                                <a href="#/actor/{{item.id}}/{{item.name}}"><h4>{{item.name}}</h4></a>
+
+                                <p>
+                                    {{item.notes}}
+                                </p>
+                            </div>
+
+                    </md-whiteframe>
+                </md-item>
+
+            </md-list>
+
+    </div>
+
+
+</div>
+
+<md-whiteframe class="md-whiteframe-z5 md-whiteframe" layout>
+
+    <p ng-repeat="item in movie.trailers.youtube" style="margin-left: 20px">
+        <youtube-video video-id="item.source"></youtube-video>
+    </p>
+
+</md-whiteframe>

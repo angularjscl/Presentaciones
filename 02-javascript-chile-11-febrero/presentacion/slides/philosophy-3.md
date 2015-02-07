@@ -1,0 +1,1 @@
+Minimizar la manipulación del **DOM** mejorando la capacidad de testeo y rendimiento de las aplicaciones.
