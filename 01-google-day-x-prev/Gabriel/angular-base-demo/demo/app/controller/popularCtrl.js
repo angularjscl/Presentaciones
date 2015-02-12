@@ -10,7 +10,13 @@
 
 
 angular.module('app')
-    .controller('popularCtrl', function( $rootScope,$scope,movieService,$stateParams,localStorageService,$timeout){
+    .controller('popularCtrl', function( $rootScope,$scope,movieService,$stateParams,localStorageService,$timeout,$firebase){
+
+        var ref = new Firebase("https://vivid-inferno-5873.firebaseio.com/data");
+        var sync = $firebase(ref);
+
+
+        $rootScope.favorites = sync.$asArray();
 
         $rootScope.buscar='';
         $scope.tipo=$stateParams.nombre;
@@ -26,15 +32,17 @@ angular.module('app')
             })
         }
         $scope.search();
-        $rootScope.favorites = localStorageService.get('favorites');
+
         if ($rootScope.favorites == null) {
             $rootScope.favorites = [];
         }
         $scope.addFavorite = function (item, index) {
             $rootScope.icon = 'exposure_plus_1';
             $scope.movies[index].icon = 'check';
-            $rootScope.favorites.push(item);
-            localStorageService.set('favorites', $rootScope.favorites);
+            item=angular.copy(item);
+            item.icon='remove';
+            $rootScope.favorites.$add(item);
+
             $timeout(function () {
                 $rootScope.icon = 'favorite';
             }, 1000)

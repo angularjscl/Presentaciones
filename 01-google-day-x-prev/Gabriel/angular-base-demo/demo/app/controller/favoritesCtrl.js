@@ -10,19 +10,27 @@
 
 
 angular.module('app')
-    .controller('favoritesCtrl', function ( $rootScope,$mdDialog, $scope, localStorageService, $stateParams, $mdToast, $location, $rootScope) {
+    .controller('favoritesCtrl', function ( $rootScope,$mdDialog, $scope, localStorageService, $stateParams, $mdToast, $location, $rootScope,$firebase) {
+
+        var ref = new Firebase("https://vivid-inferno-5873.firebaseio.com/data");
+        var sync = $firebase(ref);
+
+
+        $rootScope.favorites = sync.$asArray();
+
+
 
         $rootScope.icon = 'reply';
         $rootScope.buscar='';
 
-        $rootScope.favorites = localStorageService.get('favorites');
+
         if ($rootScope.favorites == null) {
             $rootScope.favorites = [];
         }
         for (var i = 0; i < $rootScope.favorites.length; i++) {
-            $scope.favorites[i].icon = 'remove'
+            $rootScope.favorites[i].icon = 'remove'
         }
-        $scope.showConfirm = function (ev, index) {
+        $scope.showConfirm = function (ev, favorite) {
             var confirm = $mdDialog.confirm()
                 .title('Eliminar')
                 .content('Esta Seguro de eliminar esta pelicula?')
@@ -31,17 +39,17 @@ angular.module('app')
                 .cancel('No')
                 .targetEvent(ev);
             $mdDialog.show(confirm).then(function () {
-                $scope.eliminar(index)
+                $scope.eliminar(favorite)
             }, function () {
 
             });
         };
 
 
-        $scope.eliminar = function (index) {
+        $scope.eliminar = function (favorite) {
 
-            $scope.favorites.splice(index, 1)
-            localStorageService.set('favorites', $scope.favorites);
+            $rootScope.favorites.$remove(favorite)
+
             $mdToast.show(
                 $mdToast.simple()
                     .content('Registro Eliminado')
